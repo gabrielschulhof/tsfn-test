@@ -143,4 +143,13 @@ Value returned is $2 = false
     __functor=..., __args#0=..., __args#1=...) at /usr/include/c++/12/bits/std_function.h:290
 #9  0x00007ffff7e98751 in std::function<void (Napi::Env, Napi::Function)>::operator()(Napi::Env, Napi::Function) const (this=0x7fffbc000b90, 
     __args#0=..., __args#1=...) at /usr/include/c++/12/bits/std_function.h:591
-
+--Type <RET> for more, q to quit, c to continue without paging--q
+Quit
+(gdb) finish
+Run till exit from #0  0x000000000131e87d in napi_call_function (env=0x7fffb80cd370, recv=0x7fffb8000f70, func=0x7fffb808d638, argc=1, 
+    argv=0x7ffff5218b58, result=0x7ffff5218a08) at ../src/js_native_api_v8.cc:1802
+0x00007ffff7e96377 in Napi::Function::Call (this=0x7ffff5218b20, recv=0x7fffb8000f70, argc=1, args=0x7ffff5218b58)
+    at /home/nix/node/tsfn-test/node_modules/node-addon-api/napi-inl.h:2341
+2341	      napi_call_function(_env, recv, _value, argc, args, &result);
+Value returned is $3 = napi_pending_exception
+```
